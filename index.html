@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Protótipo acadêmico Nexasoma de visualização de indicadores preventivos e perfis fictícios.">
+  <title>Nexasoma | Saúde preventiva</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="menu-lateral">
+    <h1 class="logo">NEXASOMA</h1>
+    <nav aria-label="Menu principal">
+      <a href="#home">Home</a>
+      <a href="#corpo">Corpo — dados regionais</a>
+      <a href="#pacientes">Pacientes</a>
+    </nav>
+    <p class="aviso">Protótipo acadêmico. Não fornece diagnóstico, previsão individual ou recomendação clínica.</p>
+  </aside>
+  <main class="conteudo">
+    <section id="home" class="secao">
+      <p class="sobretitulo">Inteligência epidemiológica preventiva</p>
+      <h2>Prevenção começa com contexto.</h2>
+      <p>O Nexasoma propõe organizar informações regionais, hábitos, exposições e exames simulados para apoiar a apresentação de ações de acompanhamento preventivo.</p>
+      <a class="botao" href="#corpo">Explorar dados da pesquisa</a>
+      <div class="metricas" aria-label="Resumo da amostra">
+        <div class="metrica"><strong id="metrica-respostas">—</strong><span>respostas coletadas</span></div>
+        <div class="metrica"><strong>33</strong><span>perguntas no questionário</span></div>
+        <div class="metrica"><strong id="metrica-indicadores">—</strong><span>indicadores visualizados</span></div>
+      </div>
+      <p class="nota">Os resultados são descritivos e provenientes de uma amostra de conveniência. Não representam a população brasileira nem demonstram relações de causa e efeito.</p>
+    </section>
+    <section id="corpo" class="secao">
+      <p class="sobretitulo">Pesquisa por estado e panorama geral</p>
+      <h2>Dados regionais</h2>
+      <p>Selecione um estado para conferir a disponibilidade regional. Os gráficos abaixo mostram os resultados gerais do questionário do grupo, sem separação geográfica.</p>
+      <label for="estado">Estado pesquisado</label>
+      <select id="estado" name="estado">
+        <option value="">Visão geral — amostra completa</option>
+        <option value="SP">São Paulo</option>
+        <option value="RS">Rio Grande do Sul</option>
+      </select>
+      <div id="aviso-regiao" class="estado-pendente" role="status" hidden></div>
+      <article class="cartao-grafico">
+        <h3 id="titulo-grafico">Resultados do questionário</h3>
+        <div class="filtros">
+          <div><label for="categoria">Categoria</label><select id="categoria"><option value="todos">Todas as categorias</option><option>Alimentação</option><option>Exposições</option><option>Rotina</option><option>Prevenção</option></select></div>
+          <div><label for="indicador">Indicador</label><select id="indicador"></select></div>
+        </div>
+        <p id="pergunta-pesquisa" class="nota"></p>
+        <div id="grafico" aria-live="polite"><p>Carregando resultados do questionário...</p></div>
+        <p id="fonte-dados">Fonte: questionário do grupo Nexasoma · 29–31/10/2026 · unidade: quantidade de respondentes e % da amostra. Estados não identificados.</p>
+      </article>
+      <article class="cartao-fatores">
+        <h3>Fatores ou exposições estudados</h3>
+        <p id="descricao-fator">As respostas registram hábitos alimentares, sono, atividade física, exposição ambiental e consultas preventivas. São autorrelatos e não medições clínicas.</p>
+      </article>
+    </section>
+    <section id="pacientes" class="secao">
+      <p class="sobretitulo">Demonstração fictícia</p>
+      <h2>Paciente</h2>
+      <label for="paciente">Selecione um perfil</label>
+      <select id="paciente" name="paciente"><option value="P-001">Ana Souza — P-001</option></select>
+      <article class="cartao-paciente">
+        <h3>Ana Souza</h3>
+        <p>52 anos · Região Sul · Identificador P-001</p>
+        <h4>Respostas do questionário</h4>
+        <ul><li>Viveu a maior parte da vida na região Sul;</li><li>Consumo frequente de chimarrão muito quente;</li><li>Histórico familiar relevante;</li><li>Ex-tabagista;</li><li>Baixa frequência de atividade física;</li><li>Sem acompanhamento preventivo recente.</li></ul>
+        <h4>Exames simulados</h4>
+        <ul><li>PCR ultrassensível: 4,8 (unidade não informada);</li><li>Hemoglobina: 12,1 (unidade não informada);</li><li>Status do hemograma: atenção (ilustrativo).</li></ul>
+        <h4>Pontuação demonstrativa</h4>
+        <div class="tabela-rolagem"><table><thead><tr><th scope="col">Item</th><th scope="col">Pontos fictícios</th></tr></thead>
+          <tbody><tr><td>Histórico familiar</td><td>25</td></tr><tr><td>Tabagismo anterior</td><td>25</td></tr><tr><td>Exposição regional/alimentar</td><td>15</td></tr><tr><td>PCR em atenção</td><td>20</td></tr><tr><td>Hemograma em atenção</td><td>10</td></tr><tr><td>Atividade física regular</td><td>0</td></tr><tr class="total"><th scope="row">Score final</th><th>95 pontos — <span class="risco-alto">Alto</span></th></tr></tbody>
+        </table></div>
+        <p class="nota">Essa soma não é uma escala validada de risco respiratório ou de qualquer doença. Não interprete o número como probabilidade.</p>
+        <button type="button" id="priorizar" aria-pressed="false">Priorizar acompanhamento</button>
+        <p id="status-acompanhamento" aria-live="polite">Status: aguardando ação.</p>
+      </article>
+      <p class="aviso">Paciente, respostas, exames e pontuação são fictícios. O score não é diagnóstico e não substitui avaliação profissional.</p>
+    </section>
+  </main>
+</div>
+<script src="dados.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
